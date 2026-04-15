@@ -1,0 +1,82 @@
+---
+const path = Astro.url.pathname;
+const isActive = (p: string) => path === p || (p !== '/' && path.startsWith(p));
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark">◐</span>
+      <span class="logo-text">Deliberate</span>
+    </a>
+    <nav class="nav">
+      <a href="/foundation/" class:list={['nav-link', isActive('/foundation') && 'active']}>Foundation</a>
+      <a href="/skills/" class:list={['nav-link', isActive('/skills') && 'active']}>Skills</a>
+      <a href="/failure-modes/" class:list={['nav-link', isActive('/failure-modes') && 'active']}>Failure Modes</a>
+      <a href="/install/" class:list={['nav-link', isActive('/install') && 'active']}>Install</a>
+      <a href="https://github.com/angad729/deliberate" class="nav-link nav-github" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(249, 251, 249, 0.85);
+    backdrop-filter: saturate(180%) blur(16px);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 1.0625rem;
+    letter-spacing: -0.01em;
+  }
+  .logo:hover { color: var(--forest-700); }
+  .logo-mark {
+    color: var(--forest-600);
+    font-size: 1.25rem;
+  }
+  .nav {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+  }
+  .nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    padding: 0.5rem 0.875rem;
+    border-radius: 4px;
+    transition: all 120ms ease;
+  }
+  .nav-link:hover {
+    color: var(--forest-800);
+    background: var(--forest-50);
+  }
+  .nav-link.active {
+    color: var(--forest-800);
+    background: var(--forest-50);
+  }
+  .nav-github {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+  }
+  @media (max-width: 720px) {
+    .nav { gap: 0; }
+    .nav-link { padding: 0.5rem 0.5rem; font-size: 0.8125rem; }
+    .nav-github { display: none; }
+  }
+</style>

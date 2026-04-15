@@ -1,0 +1,87 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const foundation = await getCollection('foundation');
+const entry = foundation.find((e) => e.id === 'deliberate')!;
+const { Content } = await render(entry);
+---
+
+<Layout title="Foundation" description="The nine principles of Deliberate. How an agent should write code.">
+  <article class="foundation">
+    <div class="container container-prose">
+      <nav class="breadcrumb">
+        <a href="/">← Home</a>
+      </nav>
+
+      <header class="foundation-header">
+        <div class="skill-meta">
+          <span class="cmd skill-cmd">/deliberate</span>
+          <span class="muted">·</span>
+          <span class="eyebrow">Foundation</span>
+        </div>
+        <h1 class="foundation-title">The nine principles.</h1>
+        <p class="foundation-lede">
+          How an agent should write code. The default load for any project. Everything else in Deliberate builds on top of this.
+        </p>
+        <div class="skill-source">
+          <span class="muted">Source:</span>
+          <a href="https://github.com/angad729/deliberate/blob/main/deliberate.md" target="_blank" rel="noopener" class="mono">
+            deliberate.md ↗
+          </a>
+        </div>
+      </header>
+
+      <hr class="rule" />
+
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .foundation {
+    padding: 3rem 0 4rem;
+  }
+  .breadcrumb {
+    font-size: 0.875rem;
+    margin-bottom: 2.5rem;
+  }
+  .breadcrumb a { color: var(--muted); }
+  .breadcrumb a:hover { color: var(--forest-700); }
+
+  .foundation-header {
+    margin-bottom: 1rem;
+  }
+  .skill-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 1.25rem;
+  }
+  .skill-cmd {
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+
+  .foundation-title {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+
+  .foundation-lede {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: none;
+  }
+
+  .skill-source {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+  }
+  .skill-source a { margin-left: 0.375rem; }
+</style>

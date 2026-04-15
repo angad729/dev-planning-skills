@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Install" description="Drop Deliberate into your project. Works with Claude Code, Cursor, Codex, Gemini, or any agent that reads markdown.">
+  <section class="install-hero">
+    <div class="container container-prose">
+      <div class="eyebrow">Install</div>
+      <h1 class="install-title">Drop it in. Reference it. Ship.</h1>
+      <p class="install-lede">
+        Deliberate is plain markdown. No build step, no dependencies, no lock-in. Works with any agent that can read a file.
+      </p>
+    </div>
+  </section>
+
+  <section class="install-body">
+    <div class="container container-prose">
+      <div class="step">
+        <div class="step-num mono">01</div>
+        <div class="step-body">
+          <h2 class="step-title">Copy the files into your repo</h2>
+          <p class="step-p">Clone or download from GitHub and copy <code>deliberate.md</code> and the <code>skills/</code> directory into your project root.</p>
+          <pre><code># Quick option - clone, copy, done
+git clone https://github.com/angad729/deliberate.git /tmp/deliberate
+cp /tmp/deliberate/deliberate.md ./
+cp -r /tmp/deliberate/skills ./</code></pre>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num mono">02</div>
+        <div class="step-body">
+          <h2 class="step-title">Point your agent at them</h2>
+
+          <h3 class="tool-title">Claude Code</h3>
+          <p class="step-p">Create or update <code>CLAUDE.md</code> at your project root:</p>
+          <pre><code># CLAUDE.md
+
+Follow the guidelines in @deliberate.md for all code changes.
+When working on features against a PRD or design doc, also follow @skills/spec.md.
+When debugging, also follow @skills/debug.md.
+When reviewing PRs, also follow @skills/review.md.
+When writing tests, also follow @skills/test.md.
+When crossing component boundaries, also follow @skills/architect.md.
+When planning a migration, also follow @skills/migrate.md.
+When responding to an incident, also follow @skills/incident.md.</code></pre>
+
+          <h3 class="tool-title">Cursor</h3>
+          <p class="step-p">Drop files into <code>.cursor/rules/</code> as <code>.mdc</code> rules, or reference them from <code>.cursorrules</code>:</p>
+          <pre><code># .cursorrules
+
+Always follow the guidelines in deliberate.md.
+When the task matches a specialized skill in skills/, follow that skill as well.</code></pre>
+
+          <h3 class="tool-title">Codex / Gemini / other agents</h3>
+          <p class="step-p">Include the files in your project context or system prompt. Plain markdown works everywhere.</p>
+
+          <h3 class="tool-title">Paste-in fallback</h3>
+          <p class="step-p">No config? Paste the contents of <code>deliberate.md</code> into your agent's system prompt or custom instructions. Done.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num mono">03</div>
+        <div class="step-body">
+          <h2 class="step-title">Load skills situationally, not all at once</h2>
+          <p class="step-p">
+            <code>deliberate.md</code> is the default load. Pull in a specialized skill only when the task calls for it:
+          </p>
+          <ul class="situational">
+            <li><strong>Starting a feature from a PRD?</strong> → <a href="/skills/spec/"><code>/spec</code></a></li>
+            <li><strong>Fixing a bug?</strong> → <a href="/skills/debug/"><code>/debug</code></a></li>
+            <li><strong>Reviewing a PR?</strong> → <a href="/skills/review/"><code>/review</code></a></li>
+            <li><strong>Writing tests?</strong> → <a href="/skills/test/"><code>/test</code></a></li>
+            <li><strong>Shaping boundaries or contracts?</strong> → <a href="/skills/architect/"><code>/architect</code></a></li>
+            <li><strong>Planning a migration?</strong> → <a href="/skills/migrate/"><code>/migrate</code></a></li>
+            <li><strong>Production is on fire?</strong> → <a href="/skills/incident/"><code>/incident</code></a></li>
+          </ul>
+          <p class="step-p muted">Loading every skill for every task defeats the point - each skill is a lens, and too many lenses at once blurs the focus.</p>
+        </div>
+      </div>
+
+      <hr class="rule" />
+
+      <div class="install-when-not">
+        <div class="eyebrow">When not to use it</div>
+        <ul class="when-not-list">
+          <li><strong>Trivial one-liners.</strong> Deliberate biases toward caution over speed. For throwaway scripts or obvious edits, the overhead isn't worth it.</li>
+          <li><strong>Rapid prototyping where correctness doesn't matter yet.</strong> Plan-first gets in the way of exploration.</li>
+          <li><strong>You disagree with a principle.</strong> Fork it. Delete sections. Rewrite for your taste. Starting point, not scripture.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .install-hero {
+    padding: 5rem 0 3rem;
+  }
+  .install-title {
+    margin-top: 1rem;
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.1;
+  }
+  .install-lede {
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+    color: var(--ink-soft);
+  }
+
+  .install-body {
+    padding: 2rem 0 5rem;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .step-num {
+    font-size: 1rem;
+    color: var(--forest-600);
+    font-weight: 500;
+    padding-top: 0.375rem;
+    letter-spacing: 0.05em;
+  }
+  .step-title {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+  }
+  .step-p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+  .tool-title {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1.75rem;
+    margin-bottom: 0.625rem;
+    color: var(--forest-800);
+  }
+  .step pre {
+    margin: 0.75rem 0 1.25rem;
+    font-size: 0.8125rem;
+  }
+
+  .situational {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  .situational li {
+    padding: 0.625rem 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 0.9375rem;
+  }
+  .situational li:last-child { border-bottom: none; }
+  .situational strong { color: var(--ink); }
+
+  .install-when-not {
+    margin-top: 1rem;
+    padding: 1.75rem 2rem;
+    background: var(--forest-50);
+    border-radius: 6px;
+    border-left: 3px solid var(--forest-500);
+  }
+  .when-not-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+  }
+  .when-not-list li {
+    padding: 0.625rem 0;
+    font-size: 0.9375rem;
+    color: var(--forest-800);
+    line-height: 1.55;
+  }
+  .when-not-list li strong { color: var(--forest-900); }
+
+  @media (max-width: 640px) {
+    .step { grid-template-columns: 1fr; gap: 0.5rem; }
+    .step-num { font-size: 0.875rem; }
+  }
+</style>

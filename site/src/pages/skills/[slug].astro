@@ -1,0 +1,177 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { SKILLS } from '../../lib/skills';
+
+export async function getStaticPaths() {
+  const skillsEntries = await getCollection('skills');
+  const foundationEntries = await getCollection('foundation');
+
+  return SKILLS.map((meta) => {
+    const entry =
+      meta.slug === 'deliberate'
+        ? foundationEntries.find((e) => e.id === 'deliberate')
+        : skillsEntries.find((e) => e.id === meta.slug);
+    return {
+      params: { slug: meta.slug },
+      props: { meta, entry },
+    };
+  });
+}
+
+const { meta, entry } = Astro.props;
+const { Content } = entry ? await render(entry) : { Content: null };
+
+const related = SKILLS.filter((s) => s.slug !== meta.slug && (s.category === meta.category || meta.slug === 'deliberate')).slice(0, 3);
+---
+
+<Layout title={meta.title} description={meta.tagline}>
+  <article class="skill-page">
+    <div class="container container-prose">
+      <nav class="breadcrumb">
+        <a href="/skills/">← All skills</a>
+      </nav>
+
+      <header class="skill-header">
+        <div class="skill-meta">
+          <span class="cmd skill-cmd">{meta.command}</span>
+          <span class="skill-dot muted">·</span>
+          <span class="eyebrow">{meta.categoryLabel}</span>
+        </div>
+        <h1 class="skill-title">{meta.tagline}</h1>
+        <p class="skill-blurb">{meta.blurb}</p>
+
+        <div class="skill-counters">
+          <div class="eyebrow">What it counters</div>
+          <p>{meta.counters}</p>
+        </div>
+
+        <div class="skill-source">
+          <span class="muted">Source:</span>
+          <a href={`https://github.com/angad729/deliberate/blob/main/${meta.file}`} target="_blank" rel="noopener" class="mono">
+            {meta.file} ↗
+          </a>
+        </div>
+      </header>
+
+      <hr class="rule" />
+
+      <div class="prose">
+        {Content && <Content />}
+      </div>
+
+      {related.length > 0 && (
+        <section class="related">
+          <hr class="rule" />
+          <div class="eyebrow">Related skills</div>
+          <div class="related-grid">
+            {related.map((r) => (
+              <a href={`/skills/${r.slug}/`} class="related-card">
+                <div class="related-card-top">
+                  <span class="cmd">{r.command}</span>
+                  <span class="muted related-arrow">→</span>
+                </div>
+                <div class="related-card-title">{r.tagline}</div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .skill-page {
+    padding: 3rem 0 4rem;
+  }
+  .breadcrumb {
+    font-size: 0.875rem;
+    margin-bottom: 2.5rem;
+  }
+  .breadcrumb a { color: var(--muted); }
+  .breadcrumb a:hover { color: var(--forest-700); }
+
+  .skill-header {
+    margin-bottom: 1rem;
+  }
+  .skill-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 1.25rem;
+  }
+  .skill-cmd {
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+  .skill-dot { opacity: 0.5; }
+
+  .skill-title {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+
+  .skill-blurb {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: none;
+  }
+
+  .skill-counters {
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--forest-50);
+    border-left: 3px solid var(--forest-500);
+    border-radius: 0 4px 4px 0;
+  }
+  .skill-counters p {
+    margin-top: 0.4rem;
+    font-size: 0.9375rem;
+    color: var(--forest-800);
+    max-width: none;
+  }
+
+  .skill-source {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+  }
+  .skill-source a { margin-left: 0.375rem; }
+
+  .related {
+    margin-top: 3rem;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  .related-card {
+    padding: 1.25rem;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: inherit;
+    transition: all 150ms ease;
+  }
+  .related-card:hover {
+    border-color: var(--forest-500);
+    background: var(--forest-50);
+  }
+  .related-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  .related-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+  .related-arrow { font-size: 0.875rem; }
+</style>
