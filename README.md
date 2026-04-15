@@ -44,6 +44,27 @@ See → [`dev-planning-skills.md`](./dev-planning-skills.md)
 
 ---
 
+## Spec-driven companion: `PRD.md`
+
+`dev-planning-skills.md` governs *how* the agent codes. [`PRD.md`](./PRD.md) governs *what* is being built and *why* - it's a companion file for spec-driven feature work.
+
+Load it when the task involves a PRD, design doc, or solution architecture. Skip it for bug fixes, refactors, and maintenance - the core file is enough.
+
+Six sections, same voice and one-line-test structure:
+
+| # | Principle | Counters |
+|---|---|---|
+| 0 | Find the Spec Before You Plan | Reverse-engineering intent from code |
+| 1 | Extract Before You Build | Silently filling in missing requirements |
+| 2 | Reconcile Spec and Architecture | Bending architecture (or clipping PRD) to fit |
+| 3 | Persona-Check the Implementation | Technically-correct features that miss the job |
+| 4 | Traceability | Scope creep dressed as implementation detail |
+| 5 | Keep the Spec Honest | Code and PRD drifting apart silently |
+
+See → [`PRD.md`](./PRD.md)
+
+---
+
 ## How to use it
 
 ### Claude Code
@@ -54,6 +75,7 @@ Drop the file into your project and reference it from `CLAUDE.md`:
 # CLAUDE.md
 
 Follow the guidelines in @dev-planning-skills.md for all code changes.
+For feature work against a PRD or spec, also follow @PRD.md.
 ```
 
 Or paste its contents into `CLAUDE.md` directly.
