@@ -8,7 +8,7 @@ One file. Drop it into any project. Reference it from your agent's config.
 
 ## Why this exists
 
-In late 2025, [Andrej Karpathy](https://x.com/karpathy) posted [a thread](https://x.com/karpathy/status/1915485966336389126) on what changed — and what didn't — as agent coding crossed a coherence threshold. The observations were sharp:
+In late 2025, [Andrej Karpathy](https://x.com/karpathy) posted [a thread](https://x.com/karpathy/status/1915485966336389126) on what changed - and what didn't - as agent coding crossed a coherence threshold. The observations were sharp:
 
 > "The models make wrong assumptions on your behalf and just run along with them without checking. They don't manage their confusion, don't seek clarifications, don't surface inconsistencies, don't present tradeoffs, don't push back when they should."
 
@@ -16,7 +16,7 @@ In late 2025, [Andrej Karpathy](https://x.com/karpathy) posted [a thread](https:
 
 > "They still sometimes change/remove comments and code they don't sufficiently understand as side effects, even if orthogonal to the task."
 
-Those are the failure modes this file pushes against. Credit for the diagnosis is Karpathy's — this repo is just a practical extrapolation into a planning file you can actually drop into a project.
+Those are the failure modes this file pushes against. Credit for the diagnosis is Karpathy's - this repo is just a practical extrapolation into a planning file you can actually drop into a project.
 
 I'm not claiming the observations. I'm claiming the shape of the file.
 
@@ -64,7 +64,7 @@ Reference it from `.cursorrules` or `.cursor/rules/dev-planning.mdc`.
 
 ### Codex / other agents
 
-Include it in your project context or system prompt. It's plain markdown — no tool-specific syntax.
+Include it in your project context or system prompt. It's plain markdown - no tool-specific syntax.
 
 ### Team usage
 
@@ -92,8 +92,8 @@ Commit it to your repo. Treat it like a linter config for agent behavior: shared
 
 ## Credits & references
 
-- **Andrej Karpathy** — the original observations this file extrapolates from. Follow him on [x.com/karpathy](https://x.com/karpathy).
-- Specifically the thread on LLM coding workflow, tenacity, leverage, and failure modes as of late 2025 — the source for nearly every failure mode this file targets.
+- **Andrej Karpathy** - the original observations this file extrapolates from. Follow him on [x.com/karpathy](https://x.com/karpathy).
+- Specifically the thread on LLM coding workflow, tenacity, leverage, and failure modes as of late 2025 - the source for nearly every failure mode this file targets.
 
 This repo owes its existence to that thread. None of the diagnosis is mine; the packaging into a drop-in planning file is.
 
@@ -101,7 +101,7 @@ This repo owes its existence to that thread. None of the diagnosis is mine; the 
 
 ## Contributing
 
-Found a failure mode that isn't covered? Have a tighter phrasing for a principle? PRs welcome. Keep it short — the file earns its place by being readable in a single sitting.
+Found a failure mode that isn't covered? Have a tighter phrasing for a principle? PRs welcome. Keep it short - the file earns its place by being readable in a single sitting.
 
 ---
 
