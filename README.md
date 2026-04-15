@@ -6,8 +6,6 @@ A drop-in skill library for LLM coding agents (Claude Code, Codex, Cursor, Gemin
 
 One foundational file. Seven specialized skills. Drop them into any project. Reference from your agent's config.
 
-Cousin repo to [Impeccable](https://github.com/pbakaus/impeccable) - which does this for design. Deliberate does it for engineering.
-
 ---
 
 ## Why this exists
@@ -116,9 +114,8 @@ Commit to your repo. Treat it like a linter config for agent behavior: shared, v
 ## Credits & references
 
 - **Andrej Karpathy** - the original observations this work extrapolates from. Follow him on [x.com/karpathy](https://x.com/karpathy).
-- **Paul Bakaus / [Impeccable](https://github.com/pbakaus/impeccable)** - the shape of a drop-in skill library for AI harnesses. Deliberate is the engineering-side sibling to Impeccable's design-side focus.
 
-This repo owes its existence to both. None of the diagnosis is mine; the packaging into drop-in planning files is.
+None of the diagnosis is mine; the packaging into drop-in planning files is.
 
 ---
 
