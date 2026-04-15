@@ -1,0 +1,16 @@
+Deliberate
+Copyright 2026 Angad Kandhari
+
+This product is licensed under the Apache License, Version 2.0.
+See the LICENSE file for the full license text.
+
+Derived from observations by Andrej Karpathy on LLM coding workflow
+failure modes (late 2025). See https://x.com/karpathy for the source
+thread. The diagnosis is Karpathy's; the packaging into drop-in skill
+files is this repository's contribution.
+
+Site design inspired by Impeccable (https://impeccable.style/) by
+Paul Bakaus (https://github.com/pbakaus).
+
+CLI install distribution powered by vercel-labs/skills
+(https://github.com/vercel-labs/skills).

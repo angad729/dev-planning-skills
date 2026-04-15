@@ -152,4 +152,4 @@ Found a failure mode that isn't covered? Have a tighter phrasing for a principle
 
 ## License
 
-MIT. Use it, fork it, rewrite it, ship it.
+Apache 2.0. See [LICENSE](./LICENSE) and [NOTICE](./NOTICE). Use it, fork it, rewrite it, ship it - just preserve attribution.
