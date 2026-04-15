@@ -1,14 +1,18 @@
-# dev-planning-skills
+# Deliberate
 
-A drop-in `dev-planning-skills.md` for LLM coding agents (Claude Code, Codex, Cursor, etc.) that mitigates the specific failure modes that show up once you're mostly programming in English: silent assumptions, sycophancy, overcomplication, orthogonal edits, runaway loops, and confidence without calibration.
+**Engineering discipline for AI harnesses.**
 
-One file. Drop it into any project. Reference it from your agent's config.
+A drop-in skill library for LLM coding agents (Claude Code, Codex, Cursor, Gemini, and anything else that reads markdown) that mitigates the failure modes that show up once you're mostly programming in English: silent assumptions, sycophancy, overcomplication, orthogonal edits, runaway loops, half-finished migrations, tautological tests, and confidence without calibration.
+
+One foundational file. Seven specialized skills. Drop them into any project. Reference from your agent's config.
+
+Cousin repo to [Impeccable](https://github.com/pbakaus/impeccable) - which does this for design. Deliberate does it for engineering.
 
 ---
 
 ## Why this exists
 
-In late 2025, [Andrej Karpathy](https://x.com/karpathy) posted [a thread](https://x.com/karpathy/status/1915485966336389126) on what changed - and what didn't - as agent coding crossed a coherence threshold. The observations were sharp:
+In late 2025, [Andrej Karpathy](https://x.com/karpathy) posted [a thread](https://x.com/karpathy/status/1915485966336389126) on what changed - and what didn't - as agent coding crossed a coherence threshold:
 
 > "The models make wrong assumptions on your behalf and just run along with them without checking. They don't manage their confusion, don't seek clarifications, don't surface inconsistencies, don't present tradeoffs, don't push back when they should."
 
@@ -16,15 +20,15 @@ In late 2025, [Andrej Karpathy](https://x.com/karpathy) posted [a thread](https:
 
 > "They still sometimes change/remove comments and code they don't sufficiently understand as side effects, even if orthogonal to the task."
 
-Those are the failure modes this file pushes against. Credit for the diagnosis is Karpathy's - this repo is just a practical extrapolation into a planning file you can actually drop into a project.
-
-I'm not claiming the observations. I'm claiming the shape of the file.
+Those are the failure modes Deliberate pushes against. Credit for the diagnosis is Karpathy's - this repo is the practical extrapolation into planning files you can drop into a project.
 
 ---
 
-## What's in the file
+## What's in the repo
 
-Nine principles, tuned to counter specific failure modes:
+### The foundation
+
+**[`deliberate.md`](./deliberate.md)** — nine principles for how an agent should write code. The default load for any project.
 
 | # | Principle | Counters |
 |---|---|---|
@@ -38,30 +42,21 @@ Nine principles, tuned to counter specific failure modes:
 | 8 | Confidence Calibration | Guessing in an authoritative tone |
 | 9 | Maintain Context Integrity | Silently reversing earlier decisions |
 
-Each principle has a short rule, concrete guidance, and a one-line test you can apply in the moment.
+### The specialized skills
 
-See → [`dev-planning-skills.md`](./dev-planning-skills.md)
+Load these alongside `deliberate.md` when the task calls for them. Each is a standalone file; take what you need.
 
----
-
-## Spec-driven companion: `PRD.md`
-
-`dev-planning-skills.md` governs *how* the agent codes. [`PRD.md`](./PRD.md) governs *what* is being built and *why* - it's a companion file for spec-driven feature work.
-
-Load it when the task involves a PRD, design doc, or solution architecture. Skip it for bug fixes, refactors, and maintenance - the core file is enough.
-
-Six sections, same voice and one-line-test structure:
-
-| # | Principle | Counters |
+| Skill | Use when | Counters |
 |---|---|---|
-| 0 | Find the Spec Before You Plan | Reverse-engineering intent from code |
-| 1 | Extract Before You Build | Silently filling in missing requirements |
-| 2 | Reconcile Spec and Architecture | Bending architecture (or clipping PRD) to fit |
-| 3 | Persona-Check the Implementation | Technically-correct features that miss the job |
-| 4 | Traceability | Scope creep dressed as implementation detail |
-| 5 | Keep the Spec Honest | Code and PRD drifting apart silently |
+| [`skills/spec.md`](./skills/spec.md) | Building a feature against a PRD or design doc | Reverse-engineering intent from code |
+| [`skills/debug.md`](./skills/debug.md) | Fixing a bug, triaging a symptom | Random fixes until symptoms go away |
+| [`skills/review.md`](./skills/review.md) | Reviewing a PR (yours or someone else's) | Rubber-stamp LGTMs, nit-only reviews |
+| [`skills/test.md`](./skills/test.md) | Writing or auditing tests | Over-mocking, tautological suites |
+| [`skills/architect.md`](./skills/architect.md) | Crossing component boundaries, shaping contracts | Premature abstraction, boundary blur |
+| [`skills/migrate.md`](./skills/migrate.md) | DB schema, framework upgrade, API version bump | Big-bang rewrites, half-finished migrations |
+| [`skills/incident.md`](./skills/incident.md) | Production is on fire, paging alert is active | Shotgun fixes under pressure, lost evidence |
 
-See → [`PRD.md`](./PRD.md)
+Each skill has a short rule per section and a one-line test you can apply in the moment.
 
 ---
 
@@ -69,34 +64,36 @@ See → [`PRD.md`](./PRD.md)
 
 ### Claude Code
 
-Drop the file into your project and reference it from `CLAUDE.md`:
-
 ```md
 # CLAUDE.md
 
-Follow the guidelines in @dev-planning-skills.md for all code changes.
-For feature work against a PRD or spec, also follow @PRD.md.
+Follow the guidelines in @deliberate.md for all code changes.
+When working on features against a PRD or design doc, also follow @skills/spec.md.
+When debugging, also follow @skills/debug.md.
+When reviewing PRs, also follow @skills/review.md.
+When writing tests, also follow @skills/test.md.
+When crossing component boundaries, also follow @skills/architect.md.
+When planning a migration, also follow @skills/migrate.md.
+When responding to an incident, also follow @skills/incident.md.
 ```
-
-Or paste its contents into `CLAUDE.md` directly.
 
 ### Cursor
 
-Reference it from `.cursorrules` or `.cursor/rules/dev-planning.mdc`.
+Reference from `.cursor/rules/deliberate.mdc` and the individual skill files as separate rules.
 
-### Codex / other agents
+### Codex / Gemini / other agents
 
-Include it in your project context or system prompt. It's plain markdown - no tool-specific syntax.
+Include the relevant files in project context or the system prompt. Plain markdown - no tool-specific syntax.
 
 ### Team usage
 
-Commit it to your repo. Treat it like a linter config for agent behavior: shared, versioned, and reviewed.
+Commit to your repo. Treat it like a linter config for agent behavior: shared, versioned, reviewed.
 
 ---
 
 ## When *not* to use it
 
-- **Trivial one-liners.** The file biases toward caution over speed. For throwaway scripts or obvious edits, it adds overhead you don't need.
+- **Trivial one-liners.** Deliberate biases toward caution over speed. For throwaway scripts or obvious edits, the overhead isn't worth it.
 - **Rapid prototyping where correctness doesn't matter yet.** Plan-first gets in the way of exploration.
 - **You disagree with a principle.** Fork it. Delete sections. Rewrite for your taste. It's a starting point, not scripture.
 
@@ -109,21 +106,25 @@ Commit it to your repo. Treat it like a linter config for agent behavior: shared
 - Fewer rewrites triggered by "couldn't you just…?"
 - The agent says "I don't know" or "this might be wrong" when appropriate.
 - The agent stops and escalates instead of grinding on a broken approach.
+- Debugging sessions come with named causes, not just changed lines.
+- Reviews surface architectural concerns before nits.
+- Migrations ship in revertable steps, not big-bang cutovers.
+- Incident postmortems produce concrete, dated follow-ups.
 
 ---
 
 ## Credits & references
 
-- **Andrej Karpathy** - the original observations this file extrapolates from. Follow him on [x.com/karpathy](https://x.com/karpathy).
-- Specifically the thread on LLM coding workflow, tenacity, leverage, and failure modes as of late 2025 - the source for nearly every failure mode this file targets.
+- **Andrej Karpathy** - the original observations this work extrapolates from. Follow him on [x.com/karpathy](https://x.com/karpathy).
+- **Paul Bakaus / [Impeccable](https://github.com/pbakaus/impeccable)** - the shape of a drop-in skill library for AI harnesses. Deliberate is the engineering-side sibling to Impeccable's design-side focus.
 
-This repo owes its existence to that thread. None of the diagnosis is mine; the packaging into a drop-in planning file is.
+This repo owes its existence to both. None of the diagnosis is mine; the packaging into drop-in planning files is.
 
 ---
 
 ## Contributing
 
-Found a failure mode that isn't covered? Have a tighter phrasing for a principle? PRs welcome. Keep it short - the file earns its place by being readable in a single sitting.
+Found a failure mode that isn't covered? Have a tighter phrasing for a principle? PRs welcome. Keep it short - each file earns its place by being readable in a single sitting.
 
 ---
 

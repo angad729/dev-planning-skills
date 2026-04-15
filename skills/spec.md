@@ -1,8 +1,8 @@
-# PRD
+# Spec
 
-Spec-driven companion to `dev-planning-skills.md`. Load this when a feature has a PRD, design doc, or solution architecture. It tells the agent how to read the spec, translate it into code, and stay honest to the product intent.
+Spec-driven companion to [`deliberate.md`](../deliberate.md). Load this when a feature has a PRD, design doc, or solution architecture. It tells the agent how to read the spec, translate it into code, and stay honest to the product intent.
 
-Where `dev-planning-skills.md` governs *how* to code, this file governs *what* is being built and *why*. Use both together.
+Where `deliberate.md` governs *how* to code, this file governs *what* is being built and *why*. Use both together.
 
 ---
 
@@ -131,4 +131,4 @@ Code and spec drifting apart silently is how features decay.
 
 ---
 
-*Companion to [`dev-planning-skills.md`](./dev-planning-skills.md). Load both when doing feature work against a spec; load just `dev-planning-skills.md` for maintenance, refactors, and bug fixes.*
+*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate.md`](../deliberate.md) for feature work against a spec; load just `deliberate.md` for maintenance, refactors, and bug fixes.*

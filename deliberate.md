@@ -1,8 +1,12 @@
-# Dev Planning Skills
+# Deliberate
 
-Behavioral guidelines for LLM coding agents (Claude Code, Codex, etc.) to mitigate the failure modes Karpathy observed: silent assumptions, sycophancy, overcomplication, scope creep, orthogonal edits, runaway loops, and confidence without calibration.
+**Engineering discipline for AI harnesses.**
 
-Drop this file into any project. Reference it from `CLAUDE.md` or load it directly. Bias is toward caution over speed - for trivial tasks, use judgment.
+The foundational skill. Nine principles for how an LLM coding agent should write code: think before coding, push back when warranted, plan inline, simplicity first, surgical changes, goal-driven execution, know when to stop, calibrate confidence, maintain context.
+
+Drop this file into any project. Reference it from `CLAUDE.md`, `.cursorrules`, or load it directly. Pairs with the specialized skills in `skills/` for spec work, debugging, review, testing, architecture, migrations, and incidents.
+
+Bias is toward caution over speed - for trivial tasks, use judgment.
 
 ---
 
@@ -175,4 +179,4 @@ In long sessions, it's easy to forget constraints, drop the *why* behind code, o
 
 ---
 
-*Derived from [Andrej Karpathy's observations](https://x.com/karpathy) on LLM coding pitfalls, extended with principles addressing sycophancy, runaway tenacity, context drift, and confidence calibration.*
+*Part of [Deliberate](https://github.com/angad729/deliberate) - engineering discipline for AI harnesses. Derived from [Andrej Karpathy's observations](https://x.com/karpathy) on LLM coding pitfalls, extended with principles addressing sycophancy, runaway tenacity, context drift, and confidence calibration.*
