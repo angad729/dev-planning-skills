@@ -1,3 +1,8 @@
+---
+name: deliberate
+description: "Engineering discipline for AI harnesses. Nine principles for how an LLM coding agent should write code - think before coding, push back when warranted, plan inline, simplicity first, surgical changes, goal-driven execution, know when to stop, calibrate confidence, maintain context. Load as the default for any coding task."
+---
+
 # Deliberate
 
 **Engineering discipline for AI harnesses.**

@@ -2,9 +2,32 @@
 
 **Engineering discipline for AI harnesses.**
 
-A drop-in skill library for LLM coding agents (Claude Code, Codex, Cursor, Gemini, and anything else that reads markdown) that mitigates the failure modes that show up once you're mostly programming in English: silent assumptions, sycophancy, overcomplication, orthogonal edits, runaway loops, half-finished migrations, tautological tests, and confidence without calibration.
+A drop-in skill library for LLM coding agents (Claude Code, Codex, Cursor, Gemini, and 40+ others) that mitigates the failure modes that show up once you're mostly programming in English: silent assumptions, sycophancy, overcomplication, orthogonal edits, runaway loops, half-finished migrations, tautological tests, and confidence without calibration.
 
-One foundational file. Seven specialized skills. Drop them into any project. Reference from your agent's config.
+One foundational skill. Seven specialized skills. Each a standalone `SKILL.md` with frontmatter. Install with one command or drop in by hand.
+
+Site: **[deliberate.work](https://deliberate.work)**
+
+---
+
+## Install
+
+### One-liner (recommended)
+
+```
+npx skills add angad729/deliberate
+```
+
+Works with Cursor, Claude Code, Codex, Gemini CLI, Windsurf, Cline, Continue, Goose, Kilo, Roo, and 40+ other agents. Powered by [vercel-labs/skills](https://github.com/vercel-labs/skills).
+
+### Manual
+
+```
+git clone https://github.com/angad729/deliberate.git /tmp/deliberate
+cp -r /tmp/deliberate/skills ./
+```
+
+Then reference from your agent's config (see [Usage](#usage) below).
 
 ---
 
@@ -18,15 +41,15 @@ In late 2025, [Andrej Karpathy](https://x.com/karpathy) posted [a thread](https:
 
 > "They still sometimes change/remove comments and code they don't sufficiently understand as side effects, even if orthogonal to the task."
 
-Those are the failure modes Deliberate pushes against. Credit for the diagnosis is Karpathy's - this repo is the practical extrapolation into planning files you can drop into a project.
+Those are the failure modes Deliberate pushes against. Credit for the diagnosis is Karpathy's; this library is the practical extrapolation into files you can drop into a project.
 
 ---
 
-## What's in the repo
+## What's in the library
 
 ### The foundation
 
-**[`deliberate.md`](./deliberate.md)** — nine principles for how an agent should write code. The default load for any project.
+**[`skills/deliberate/SKILL.md`](./skills/deliberate/SKILL.md)** — nine principles for how an agent should write code. The default load for any project.
 
 | # | Principle | Counters |
 |---|---|---|
@@ -42,46 +65,46 @@ Those are the failure modes Deliberate pushes against. Credit for the diagnosis 
 
 ### The specialized skills
 
-Load these alongside `deliberate.md` when the task calls for them. Each is a standalone file; take what you need.
+Load these alongside `deliberate` when the task calls for them. Each is a standalone file; take what you need.
 
 | Skill | Use when | Counters |
 |---|---|---|
-| [`skills/spec.md`](./skills/spec.md) | Building a feature against a PRD or design doc | Reverse-engineering intent from code |
-| [`skills/debug.md`](./skills/debug.md) | Fixing a bug, triaging a symptom | Random fixes until symptoms go away |
-| [`skills/review.md`](./skills/review.md) | Reviewing a PR (yours or someone else's) | Rubber-stamp LGTMs, nit-only reviews |
-| [`skills/test.md`](./skills/test.md) | Writing or auditing tests | Over-mocking, tautological suites |
-| [`skills/architect.md`](./skills/architect.md) | Crossing component boundaries, shaping contracts | Premature abstraction, boundary blur |
-| [`skills/migrate.md`](./skills/migrate.md) | DB schema, framework upgrade, API version bump | Big-bang rewrites, half-finished migrations |
-| [`skills/incident.md`](./skills/incident.md) | Production is on fire, paging alert is active | Shotgun fixes under pressure, lost evidence |
+| [`spec`](./skills/spec/SKILL.md) | Building a feature against a PRD or design doc | Reverse-engineering intent from code |
+| [`debug`](./skills/debug/SKILL.md) | Fixing a bug, triaging a symptom | Random fixes until symptoms go away |
+| [`review`](./skills/review/SKILL.md) | Reviewing a PR (yours or someone else's) | Rubber-stamp LGTMs, nit-only reviews |
+| [`test`](./skills/test/SKILL.md) | Writing or auditing tests | Over-mocking, tautological suites |
+| [`architect`](./skills/architect/SKILL.md) | Crossing component boundaries, shaping contracts | Premature abstraction, boundary blur |
+| [`migrate`](./skills/migrate/SKILL.md) | DB schema, framework upgrade, API version bump | Big-bang rewrites, half-finished migrations |
+| [`incident`](./skills/incident/SKILL.md) | Production is on fire, paging alert is active | Shotgun fixes under pressure, lost evidence |
 
 Each skill has a short rule per section and a one-line test you can apply in the moment.
 
 ---
 
-## How to use it
+## Usage
 
 ### Claude Code
 
 ```md
 # CLAUDE.md
 
-Follow the guidelines in @deliberate.md for all code changes.
-When working on features against a PRD or design doc, also follow @skills/spec.md.
-When debugging, also follow @skills/debug.md.
-When reviewing PRs, also follow @skills/review.md.
-When writing tests, also follow @skills/test.md.
-When crossing component boundaries, also follow @skills/architect.md.
-When planning a migration, also follow @skills/migrate.md.
-When responding to an incident, also follow @skills/incident.md.
+Follow the guidelines in @skills/deliberate/SKILL.md for all code changes.
+When working on features against a PRD or design doc, also follow @skills/spec/SKILL.md.
+When debugging, also follow @skills/debug/SKILL.md.
+When reviewing PRs, also follow @skills/review/SKILL.md.
+When writing tests, also follow @skills/test/SKILL.md.
+When crossing component boundaries, also follow @skills/architect/SKILL.md.
+When planning a migration, also follow @skills/migrate/SKILL.md.
+When responding to an incident, also follow @skills/incident/SKILL.md.
 ```
 
 ### Cursor
 
-Reference from `.cursor/rules/deliberate.mdc` and the individual skill files as separate rules.
+Skills land in `.cursor/rules/` automatically via `npx skills add`. For manual installs, reference them from `.cursorrules`.
 
 ### Codex / Gemini / other agents
 
-Include the relevant files in project context or the system prompt. Plain markdown - no tool-specific syntax.
+If you used `npx skills add`, you're done — it detects your agents and installs to each. Otherwise include the relevant `SKILL.md` files in your project context or system prompt. Plain markdown with frontmatter works everywhere.
 
 ### Team usage
 
@@ -114,7 +137,8 @@ Commit to your repo. Treat it like a linter config for agent behavior: shared, v
 ## Credits & references
 
 - **Andrej Karpathy** - the original observations this work extrapolates from. Follow him on [x.com/karpathy](https://x.com/karpathy).
-- Site design inspired by [Impeccable](https://github.com/pbakaus/impeccable) by [pbakaus](https://github.com/pbakaus).
+- Site design inspired by [Impeccable](https://impeccable.style/) by [pbakaus](https://github.com/pbakaus).
+- CLI install powered by [vercel-labs/skills](https://github.com/vercel-labs/skills).
 
 None of the diagnosis is mine; the packaging into drop-in planning files is.
 

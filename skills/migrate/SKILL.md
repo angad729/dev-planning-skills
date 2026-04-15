@@ -1,8 +1,13 @@
+---
+name: migrate
+description: "Migration discipline. Load for database schema changes, framework upgrades, API version bumps, rename rollouts, data backfills, or any change that can't land in a single deploy. Covers incremental-by-default, writing rollbacks first, making schema changes safe, feature-flagging cutovers, backfilling idempotently, and actually removing the old path."
+---
+
 # Migrate
 
 Migration skill for LLM coding agents. Load this for non-trivial migrations: database schema changes, framework upgrades, API version bumps, rename rollouts, data backfills, or any change that can't land in a single atomic deploy.
 
-Where [`deliberate.md`](../deliberate.md) keeps code honest, this skill keeps *transitions* honest. Counters the big-bang rewrite, the half-finished migration, and the "we'll clean up the old path later" that never happens.
+Where [`deliberate`](../deliberate/SKILL.md) keeps code honest, this skill keeps *transitions* honest. Counters the big-bang rewrite, the half-finished migration, and the "we'll clean up the old path later" that never happens.
 
 ---
 
@@ -160,4 +165,4 @@ The code will work. The social coordination is what migrations actually fail on.
 
 ---
 
-*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate.md`](../deliberate.md) and [`architect.md`](./architect.md).*
+*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md) and [`architect`](../architect/SKILL.md).*

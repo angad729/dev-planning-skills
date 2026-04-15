@@ -1,8 +1,13 @@
+---
+name: architect
+description: "Architectural thinking. Load when crossing component boundaries, reshaping contracts, introducing a service, or deciding where code belongs. Covers naming boundaries, locating code by ownership and change cadence, changing contracts carefully, measuring coupling and cohesion, and not abstracting until the pattern is real."
+---
+
 # Architect
 
 Architectural thinking skill for LLM coding agents. Load this when the task crosses component boundaries, introduces a new service, reshapes a contract, or asks "where should this code live?"
 
-Where [`deliberate.md`](../deliberate.md) keeps code honest and [`spec.md`](./spec.md) keeps product intent honest, this skill keeps *structural* decisions honest. Counters premature abstraction, boundary violations, and the silent blurring of component responsibilities.
+Where [`deliberate`](../deliberate/SKILL.md) keeps code honest and [`spec`](../spec/SKILL.md) keeps product intent honest, this skill keeps *structural* decisions honest. Counters premature abstraction, boundary violations, and the silent blurring of component responsibilities.
 
 ---
 
@@ -157,4 +162,4 @@ Three lines is enough: *what we chose, what we considered, why we chose it.* Thi
 
 ---
 
-*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate.md`](../deliberate.md) and [`spec.md`](./spec.md).*
+*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md) and [`spec`](../spec/SKILL.md).*

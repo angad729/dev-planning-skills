@@ -1,8 +1,13 @@
+---
+name: debug
+description: "Debugging discipline. Load when the task is fixing a bug, triaging a symptom, or chasing a failing test. Covers reproducing before reasoning, separating symptom from cause, bisecting systematically, not masking what you don't understand, suspecting assumptions, fixing the class not the instance, and leaving a regression test."
+---
+
 # Debug
 
 Debugging skill for LLM coding agents. Load this when the task is "fix the bug," "it's broken," "tests are failing," or any request that starts from a symptom rather than a feature.
 
-Where [`deliberate.md`](../deliberate.md) keeps code honest, this skill keeps *diagnosis* honest. Counters the failure mode of trying random fixes until symptoms go away.
+Where [`deliberate`](../deliberate/SKILL.md) keeps code honest, this skill keeps *diagnosis* honest. Counters the failure mode of trying random fixes until symptoms go away.
 
 ---
 
@@ -132,4 +137,4 @@ Landing a fix with no test is a decision, not a default. Own it.
 
 ---
 
-*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate.md`](../deliberate.md).*
+*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md).*

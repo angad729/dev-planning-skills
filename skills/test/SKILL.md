@@ -1,8 +1,13 @@
+---
+name: test
+description: "Testing discipline. Load when writing tests, deciding what to test, or auditing a test suite. Covers testing behavior not implementation, picking the right layer, mocking sparingly and honestly, one reason to fail, covering failure paths, staying deterministic, and not chasing coverage."
+---
+
 # Test
 
 Testing skill for LLM coding agents. Load this when writing tests, deciding what to test, or evaluating an existing test suite.
 
-Where [`deliberate.md`](../deliberate.md) keeps implementation honest, this skill keeps *tests* honest. Counters the failure modes of over-mocking, tautological tests, testing implementation details, and shipping green CI that proves nothing.
+Where [`deliberate`](../deliberate/SKILL.md) keeps implementation honest, this skill keeps *tests* honest. Counters the failure modes of over-mocking, tautological tests, testing implementation details, and shipping green CI that proves nothing.
 
 ---
 
@@ -141,4 +146,4 @@ Dead tests give false confidence and slow the suite. Both are costly.
 
 ---
 
-*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate.md`](../deliberate.md).*
+*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md).*

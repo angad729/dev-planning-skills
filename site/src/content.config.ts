@@ -3,18 +3,14 @@ import { glob } from 'astro/loaders';
 
 const skills = defineCollection({
   loader: glob({
-    pattern: '*.md',
+    pattern: '*/SKILL.md',
     base: '../skills',
+    generateId: ({ entry }) => entry.split('/')[0],
   }),
-  schema: z.object({}).passthrough().optional(),
+  schema: z.object({
+    name: z.string().optional(),
+    description: z.string().optional(),
+  }).passthrough(),
 });
 
-const foundation = defineCollection({
-  loader: glob({
-    pattern: 'deliberate.md',
-    base: '..',
-  }),
-  schema: z.object({}).passthrough().optional(),
-});
-
-export const collections = { skills, foundation };
+export const collections = { skills };

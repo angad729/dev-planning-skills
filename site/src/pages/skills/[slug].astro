@@ -5,13 +5,9 @@ import { SKILLS } from '../../lib/skills';
 
 export async function getStaticPaths() {
   const skillsEntries = await getCollection('skills');
-  const foundationEntries = await getCollection('foundation');
 
   return SKILLS.map((meta) => {
-    const entry =
-      meta.slug === 'deliberate'
-        ? foundationEntries.find((e) => e.id === 'deliberate')
-        : skillsEntries.find((e) => e.id === meta.slug);
+    const entry = skillsEntries.find((e) => e.id === meta.slug);
     return {
       params: { slug: meta.slug },
       props: { meta, entry },

@@ -101,25 +101,23 @@ const specialized = SKILLS.filter((s) => s.slug !== 'deliberate');
       </div>
 
       <div class="install-grid">
-        <div class="install-card">
+        <div class="install-card install-card-primary">
           <div class="install-head">
-            <span class="eyebrow">Claude Code</span>
+            <span class="recommended-tag">Recommended</span>
+            <span class="eyebrow">One-liner</span>
           </div>
-          <pre><code># CLAUDE.md
-
-Follow the guidelines in @deliberate.md for all code changes.
-When working on features against a PRD, also follow @skills/spec.md.
-When debugging, also follow @skills/debug.md.
-When reviewing PRs, also follow @skills/review.md.
-When writing tests, also follow @skills/test.md.</code></pre>
+          <pre><code>npx skills add angad729/deliberate</code></pre>
+          <p class="install-blurb muted">
+            Installs all eight skills. Works with Cursor, Claude Code, Codex, Gemini, and 40+ other agents via <a href="https://github.com/vercel-labs/skills" target="_blank" rel="noopener">vercel-labs/skills</a>.
+          </p>
         </div>
 
         <div class="install-card">
           <div class="install-head">
-            <span class="eyebrow">Cursor / Codex / Gemini</span>
+            <span class="eyebrow">Manual / paste-in</span>
           </div>
           <p class="muted install-blurb">
-            Reference from <code>.cursor/rules/</code>, include in system prompts, or paste contents directly. Plain markdown works everywhere.
+            Prefer to control what lands in your repo? Clone the repo and reference skills from <code>CLAUDE.md</code>, <code>.cursorrules</code>, or paste into any system prompt. Plain markdown.
           </p>
           <a href="/install/" class="btn btn-ghost">Full install guide →</a>
         </div>
@@ -318,7 +316,7 @@ When writing tests, also follow @skills/test.md.</code></pre>
 
   .install-grid {
     display: grid;
-    grid-template-columns: 1.6fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
     gap: 1rem;
   }
   .install-card {
@@ -327,16 +325,40 @@ When writing tests, also follow @skills/test.md.</code></pre>
     border: 1px solid var(--line);
     border-radius: 8px;
   }
+  .install-card-primary {
+    background: linear-gradient(180deg, var(--forest-50) 0%, var(--paper-2) 100%);
+    border-color: var(--forest-300);
+  }
   .install-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
     margin-bottom: 1rem;
   }
+  .recommended-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--forest-800);
+    background: var(--forest-100);
+    padding: 0.25rem 0.625rem;
+    border-radius: 3px;
+  }
   .install-card pre {
-    margin: 0;
-    font-size: 0.8125rem;
+    margin: 0 0 1rem;
+    font-size: 0.875rem;
+  }
+  .install-card-primary pre {
+    font-size: 0.9375rem;
   }
   .install-blurb {
     margin: 0 0 1.25rem;
     font-size: 0.9375rem;
+    line-height: 1.55;
   }
 
   .why-title {

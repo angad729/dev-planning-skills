@@ -1,8 +1,13 @@
+---
+name: review
+description: "Code review discipline. Load when reviewing a PR (your own or someone else's) or auditing existing code. Covers reading intent first, reviewing in layers top-down, labeling comments by severity, hunting for what isn't there, reviewing tests like code, and self-reviewing before submit."
+---
+
 # Review
 
 Code review skill for LLM coding agents. Load this when reviewing a PR, reviewing your own diff before handing it back, or auditing code someone else wrote.
 
-Where [`deliberate.md`](../deliberate.md) keeps writing honest, this skill keeps *reviewing* honest. Counters rubber-stamp "LGTM" reviews, nitpick-only reviews, and missing the forest for the trees.
+Where [`deliberate`](../deliberate/SKILL.md) keeps writing honest, this skill keeps *reviewing* honest. Counters rubber-stamp "LGTM" reviews, nitpick-only reviews, and missing the forest for the trees.
 
 ---
 
@@ -156,4 +161,4 @@ Self-review catches more issues than any linter. Do it.
 
 ---
 
-*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate.md`](../deliberate.md).*
+*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md).*

@@ -18,45 +18,45 @@ import Layout from '../layouts/Layout.astro';
       <div class="step">
         <div class="step-num mono">01</div>
         <div class="step-body">
-          <h2 class="step-title">Copy the files into your repo</h2>
-          <p class="step-p">Clone or download from GitHub and copy <code>deliberate.md</code> and the <code>skills/</code> directory into your project root.</p>
-          <pre><code># Quick option - clone, copy, done
-git clone https://github.com/angad729/deliberate.git /tmp/deliberate
-cp /tmp/deliberate/deliberate.md ./
-cp -r /tmp/deliberate/skills ./</code></pre>
+          <div class="step-recommended">
+            <span class="recommended-tag">Recommended</span>
+            <h2 class="step-title">Install via the <code>skills</code> CLI</h2>
+          </div>
+          <p class="step-p">One command. Installs all eight skills into your project for Cursor, Claude Code, Gemini CLI, Codex CLI, and 40+ other agents.</p>
+          <pre><code>npx skills add angad729/deliberate</code></pre>
+          <p class="step-p muted">Works with Cursor, Claude Code, Codex, Gemini, Windsurf, Cline, Continue, Goose, Kilo, Roo, and more. Powered by <a href="https://github.com/vercel-labs/skills" target="_blank" rel="noopener">vercel-labs/skills</a>.</p>
         </div>
       </div>
 
       <div class="step">
         <div class="step-num mono">02</div>
         <div class="step-body">
-          <h2 class="step-title">Point your agent at them</h2>
+          <h2 class="step-title">Or copy the files manually</h2>
+          <p class="step-p">Prefer to see and control what lands in your repo? Clone and copy.</p>
+          <pre><code>git clone https://github.com/angad729/deliberate.git /tmp/deliberate
+cp -r /tmp/deliberate/skills ./</code></pre>
 
           <h3 class="tool-title">Claude Code</h3>
           <p class="step-p">Create or update <code>CLAUDE.md</code> at your project root:</p>
           <pre><code># CLAUDE.md
 
-Follow the guidelines in @deliberate.md for all code changes.
-When working on features against a PRD or design doc, also follow @skills/spec.md.
-When debugging, also follow @skills/debug.md.
-When reviewing PRs, also follow @skills/review.md.
-When writing tests, also follow @skills/test.md.
-When crossing component boundaries, also follow @skills/architect.md.
-When planning a migration, also follow @skills/migrate.md.
-When responding to an incident, also follow @skills/incident.md.</code></pre>
+Follow the guidelines in @skills/deliberate/SKILL.md for all code changes.
+When working on features against a PRD, also follow @skills/spec/SKILL.md.
+When debugging, also follow @skills/debug/SKILL.md.
+When reviewing PRs, also follow @skills/review/SKILL.md.
+When writing tests, also follow @skills/test/SKILL.md.
+When crossing component boundaries, also follow @skills/architect/SKILL.md.
+When planning a migration, also follow @skills/migrate/SKILL.md.
+When responding to an incident, also follow @skills/incident/SKILL.md.</code></pre>
 
           <h3 class="tool-title">Cursor</h3>
-          <p class="step-p">Drop files into <code>.cursor/rules/</code> as <code>.mdc</code> rules, or reference them from <code>.cursorrules</code>:</p>
-          <pre><code># .cursorrules
-
-Always follow the guidelines in deliberate.md.
-When the task matches a specialized skill in skills/, follow that skill as well.</code></pre>
+          <p class="step-p">Drop the skill folders into <code>.cursor/rules/</code>, or reference from <code>.cursorrules</code>.</p>
 
           <h3 class="tool-title">Codex / Gemini / other agents</h3>
-          <p class="step-p">Include the files in your project context or system prompt. Plain markdown works everywhere.</p>
+          <p class="step-p">Include the files in your project context or system prompt. Plain markdown with frontmatter works everywhere.</p>
 
           <h3 class="tool-title">Paste-in fallback</h3>
-          <p class="step-p">No config? Paste the contents of <code>deliberate.md</code> into your agent's system prompt or custom instructions. Done.</p>
+          <p class="step-p">No config? Paste the contents of <code>skills/deliberate/SKILL.md</code> into your agent's system prompt or custom instructions. Done.</p>
         </div>
       </div>
 
@@ -111,6 +111,28 @@ When the task matches a specialized skill in skills/, follow that skill as well.
 
   .install-body {
     padding: 2rem 0 5rem;
+  }
+  .step-recommended {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+  .recommended-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--forest-800);
+    background: var(--forest-100);
+    padding: 0.25rem 0.625rem;
+    border-radius: 3px;
+  }
+  .step-recommended .step-title {
+    margin-bottom: 0;
   }
 
   .step {

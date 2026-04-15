@@ -1,8 +1,13 @@
+---
+name: incident
+description: "Incident response discipline. Load when production is broken, a paging alert is active, or the user is debugging under time pressure. Covers stabilizing before diagnosing, communicating while working, not losing evidence, one change at a time, hypothesizing explicitly, knowing when to escalate, and writing the postmortem honestly."
+---
+
 # Incident
 
 Incident-response skill for LLM coding agents. Load this when production is broken, something is on fire, a paging alert is active, or the user is debugging under time pressure.
 
-Where [`deliberate.md`](../deliberate.md) keeps normal work honest, this skill keeps *crisis* work honest. Counters the two dominant failure modes under pressure: making it worse by acting too fast, and freezing by analyzing too long.
+Where [`deliberate`](../deliberate/SKILL.md) keeps normal work honest, this skill keeps *crisis* work honest. Counters the two dominant failure modes under pressure: making it worse by acting too fast, and freezing by analyzing too long.
 
 ---
 
@@ -150,4 +155,4 @@ Blameless means focus on systems, not people. It doesn't mean vague. "Better mon
 
 ---
 
-*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate.md`](../deliberate.md) during on-call or crisis work.*
+*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md) during on-call or crisis work.*

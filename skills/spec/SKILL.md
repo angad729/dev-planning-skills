@@ -1,8 +1,13 @@
+---
+name: spec
+description: "Spec-driven feature work. Load when the task involves a PRD, design doc, or solution architecture. Covers finding the spec, extracting problem/persona/success/non-goals, reconciling with architecture, persona-checking the implementation, and keeping the PRD honest when reality diverges."
+---
+
 # Spec
 
-Spec-driven companion to [`deliberate.md`](../deliberate.md). Load this when a feature has a PRD, design doc, or solution architecture. It tells the agent how to read the spec, translate it into code, and stay honest to the product intent.
+Spec-driven companion to [`deliberate`](../deliberate/SKILL.md). Load this when a feature has a PRD, design doc, or solution architecture. It tells the agent how to read the spec, translate it into code, and stay honest to the product intent.
 
-Where `deliberate.md` governs *how* to code, this file governs *what* is being built and *why*. Use both together.
+Where `deliberate` governs *how* to code, this skill governs *what* is being built and *why*. Use both together.
 
 ---
 
@@ -131,4 +136,4 @@ Code and spec drifting apart silently is how features decay.
 
 ---
 
-*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate.md`](../deliberate.md) for feature work against a spec; load just `deliberate.md` for maintenance, refactors, and bug fixes.*
+*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md) for feature work against a spec; load just `deliberate` for maintenance, refactors, and bug fixes.*
