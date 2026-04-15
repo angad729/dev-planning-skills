@@ -114,6 +114,7 @@ Commit to your repo. Treat it like a linter config for agent behavior: shared, v
 ## Credits & references
 
 - **Andrej Karpathy** - the original observations this work extrapolates from. Follow him on [x.com/karpathy](https://x.com/karpathy).
+- Site design inspired by [Impeccable](https://github.com/pbakaus/impeccable) by [pbakaus](https://github.com/pbakaus).
 
 None of the diagnosis is mine; the packaging into drop-in planning files is.
 
