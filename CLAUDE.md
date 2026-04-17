@@ -19,11 +19,11 @@ LICENSE                 — Apache 2.0
 NOTICE                  — copyright + attribution
 ```
 
-Every skill lives at `skills/<name>/SKILL.md` with YAML frontmatter (`name`, `description`). This structure is required for compatibility with `npx skills add angad729/deliberate` (vercel-labs/skills CLI).
+Every skill lives at `skills/<name>/SKILL.md` with YAML frontmatter (`name`, `description`). This structure is required for compatibility with `npx skills add angad-kandhari/deliberate` (vercel-labs/skills CLI).
 
 ## Sibling repo
 
-The marketing site lives at `angad729/deliberate-site` (separate repo). It pulls this repo in as a git submodule at `content/deliberate/`. Deployed to https://deliberate.work via Cloudflare Pages.
+The marketing site lives at `angad-kandhari/deliberate-site` (separate repo). It pulls this repo in as a git submodule at `content/deliberate/`. Deployed to https://deliberate.work via Cloudflare Pages.
 
 When editing skills here, the site repo's submodule needs to be bumped to pick up changes.
 
