@@ -136,4 +136,4 @@ Code and spec drifting apart silently is how features decay.
 
 ---
 
-*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md) for feature work against a spec; load just `deliberate` for maintenance, refactors, and bug fixes.*
+*Part of [Deliberate](https://github.com/angad-kandhari/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md) for feature work against a spec; load just `deliberate` for maintenance, refactors, and bug fixes.*

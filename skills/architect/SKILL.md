@@ -162,4 +162,4 @@ Three lines is enough: *what we chose, what we considered, why we chose it.* Thi
 
 ---
 
-*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md) and [`spec`](../spec/SKILL.md).*
+*Part of [Deliberate](https://github.com/angad-kandhari/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md) and [`spec`](../spec/SKILL.md).*

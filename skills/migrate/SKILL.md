@@ -165,4 +165,4 @@ The code will work. The social coordination is what migrations actually fail on.
 
 ---
 
-*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md) and [`architect`](../architect/SKILL.md).*
+*Part of [Deliberate](https://github.com/angad-kandhari/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md) and [`architect`](../architect/SKILL.md).*

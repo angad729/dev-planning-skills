@@ -184,4 +184,4 @@ In long sessions, it's easy to forget constraints, drop the *why* behind code, o
 
 ---
 
-*Part of [Deliberate](https://github.com/angad729/deliberate) - engineering discipline for AI harnesses. Derived from [Andrej Karpathy's observations](https://x.com/karpathy) on LLM coding pitfalls, extended with principles addressing sycophancy, runaway tenacity, context drift, and confidence calibration.*
+*Part of [Deliberate](https://github.com/angad-kandhari/deliberate) - engineering discipline for AI harnesses. Derived from [Andrej Karpathy's observations](https://x.com/karpathy) on LLM coding pitfalls, extended with principles addressing sycophancy, runaway tenacity, context drift, and confidence calibration.*

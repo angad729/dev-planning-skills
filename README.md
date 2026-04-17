@@ -15,7 +15,7 @@ Site: **[deliberate.work](https://deliberate.work)**
 ### One-liner (recommended)
 
 ```
-npx skills add angad729/deliberate
+npx skills add angad-kandhari/deliberate
 ```
 
 Works with Cursor, Claude Code, Codex, Gemini CLI, Windsurf, Cline, Continue, Goose, Kilo, Roo, and 40+ other agents. Powered by [vercel-labs/skills](https://github.com/vercel-labs/skills).
@@ -23,7 +23,7 @@ Works with Cursor, Claude Code, Codex, Gemini CLI, Windsurf, Cline, Continue, Go
 ### Manual
 
 ```
-git clone https://github.com/angad729/deliberate.git /tmp/deliberate
+git clone https://github.com/angad-kandhari/deliberate.git /tmp/deliberate
 cp -r /tmp/deliberate/skills ./
 ```
 

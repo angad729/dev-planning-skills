@@ -155,4 +155,4 @@ Blameless means focus on systems, not people. It doesn't mean vague. "Better mon
 
 ---
 
-*Part of [Deliberate](https://github.com/angad729/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md) during on-call or crisis work.*
+*Part of [Deliberate](https://github.com/angad-kandhari/deliberate). Load alongside [`deliberate`](../deliberate/SKILL.md) during on-call or crisis work.*
